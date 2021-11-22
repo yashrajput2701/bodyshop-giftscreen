@@ -13,8 +13,8 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 455,
-  height: 320,
+  width: "auto",
+  height: "auto",
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -95,6 +95,8 @@ export default function Cardbalance() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [isShow,setShow] = React.useState(false);
+  const [enable,setEnable] = React.useState(true);
   const validate = Yup.object({
     Giftcardnumber: Yup.string()
       .max(15, "Must be 15 characters or less")
@@ -179,16 +181,17 @@ export default function Cardbalance() {
                                 type="text"
                                 placeholder="Gift card number here"
                                 style={{
-                                  // border: "1px #E2E2E2 solid",
-                                  // height: "54px",
-                                  // width: "445px",
-                                  // marginTop: "1rem",
                                   fontSize: "14px",
-                                  // borderRadius: "5px",
                                   border: "none",
                                 }}
                                 className={classes.inputfield}
+                                setShow = {setShow}
+                                isShow = {isShow}
+                                setEnable = {setEnable}
                               />
+                              {console.log(isShow)}
+                              
+                              {isShow? <input />: ""}
                               <Box className={classes.flexx}>
                                 <Button className={classes.cancelbtn}>
                                   Cancel
@@ -196,6 +199,7 @@ export default function Cardbalance() {
                                 <Button
                                   className={classes.greenbtn}
                                   type="submit"
+                                  disabled={enable}
                                 >
                                   Check Balance
                                 </Button>
