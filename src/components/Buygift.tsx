@@ -7,6 +7,7 @@ import { makeStyles, createStyles } from "@material-ui/core";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import groupd from "../Assets/background.png";
 const useStyles = makeStyles((theme) =>
   createStyles({
     mainContainer: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) =>
       background: "#044236",
       width: "auto",
       borderRadius: "10px",
+      backgroundImage: `url(${groupd})`,
     },
     hometext: {
       display: "flex",
@@ -33,7 +35,8 @@ const useStyles = makeStyles((theme) =>
       fontSize: "24px",
       color: "yellow",
       textTransform: "uppercase",
-      paddingTop: "2rem"
+      paddingTop: "2rem",
+      // fontFamily: "druk",
     },
     giftimg: {
       padding: "2rem",

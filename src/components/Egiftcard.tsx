@@ -5,11 +5,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { makeStyles, createStyles, Button } from "@material-ui/core";
 import background from "../Assets/gift.png";
-import Buygift from "./Buygift";
-import Cardbalance from "./Cardbalance";
-import Redeemgift from "./Redeemgift";
-import Corporategifting from "./Corporategifting";
-import Products from "./Products";
+// import { Signup } from "./Formik";
 // import {useNavigate} from "react-router-dom";
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -22,7 +18,7 @@ const useStyles = makeStyles((theme) =>
     hometext: {
       display: "flex",
       justifyContent: "center",
-      padding: '3rem',
+      padding: "3rem",
     },
     left: {
       boxSizing: "border-box",
@@ -43,56 +39,65 @@ const useStyles = makeStyles((theme) =>
       marginTop: "3rem",
     },
     giftimg: {
-      padding: '2rem',
-    }
+      padding: "2rem",
+    },
   })
 );
 export default function AutoGridNoWrap() {
   const classes = useStyles();
-  // const navigate = useNavigate();
-  
-  // const handleRoute = () =>{ 
-  //   navigate("/Formik");
-  // }
-  // const [isShow,setisshow] = React.useState("")
+  // const [isShow, setisshow] = React.useState(false);
+  // const handleClick = () => {
+  //   setisshow(true);
+  // };
   return (
     <>
-    <Box sx={{ flexGrow: 1, overflow: "hidden" }}>
-      <Paper sx={{ p: 2, margin: "auto", maxWidth: 1200, flexGrow: 1, boxShadow: "none" }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-              <Box className={classes.left}>
-            <Typography variant="h4" className={classes.heading}>
-                  Send an e-gift card online
-                </Typography>
-                <Typography style={{ width: "600px", color: "#666666", fontSize: "16px", marginTop: "2rem"}}>
-                  Dreaming of a summer escape? Slip into the shower for a taste
-                  of the tropics with this fruity fresh shower gel. It’s
-                  enriched with mango extract from soft and squidgy mangoes and
-                  cleanses your skin with its silky sudsy layers.
-                </Typography>
-                <Button className={classes.ggbtn}>Send an E-Gift card</Button>
-                </Box>
+      <Box sx={{ flexGrow: 1, overflow: "hidden" }}>
+        <Paper
+          sx={{
+            p: 2,
+            margin: "auto",
+            maxWidth: 1200,
+            flexGrow: 1,
+            boxShadow: "none",
+          }}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm container>
+              <Grid item xs container direction="column" spacing={2}>
+                <Grid item xs>
+                  <Box className={classes.left}>
+                    <Typography variant="h4" className={classes.heading}>
+                      Send an e-gift card online
+                    </Typography>
+                    <Typography
+                      style={{
+                        width: "600px",
+                        color: "#666666",
+                        fontSize: "16px",
+                        marginTop: "2rem",
+                      }}
+                    >
+                      Dreaming of a summer escape? Slip into the shower for a
+                      taste of the tropics with this fruity fresh shower gel.
+                      It’s enriched with mango extract from soft and squidgy
+                      mangoes and cleanses your skin with its silky sudsy
+                      layers.
+                    </Typography>
+                    <Button className={classes.ggbtn}>
+                      Send an E-Gift card
+                    </Button>
+                  </Box>
+                </Grid>
               </Grid>
-              
-            </Grid>
-            <Grid item>
-            <Box className={classes.giftimg}>
+              <Grid item>
+                <Box className={classes.giftimg}>
                   <img src={background} alt="" />
                 </Box>
-           
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Paper>
-      <Buygift />
-      <Cardbalance />
-      <Redeemgift />
-      <Corporategifting />
-      <Products />
-    </Box>
+        </Paper>
+      </Box>
     </>
   );
 }

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) =>
       width: "100%",
       margin: "0 auto",
       backgroundColor: "#044236",
-      height: "384px",
+      height: "auto",
       display: "flex",
       justifyContent: "center",
       position: "relative",
@@ -29,11 +29,12 @@ const useStyles = makeStyles((theme) =>
     whitetext: {
       color: "white",
       fontSize: "17px",
-      padding: "2rem",
+      // padding: "2rem",
     },
     yellowtext: {
       color: "#D6CD56",
       textAlign: "center",
+      font: "Druk,sans-serif !important",
     },
     dummytext: {
       color: "white",
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) =>
       textAlign: "center",
       display: "flex",
       justifyContent: "center",
-      padding: "3rem",
+      padding: "5rem",
     },
     backgroundimg: {
       position: "absolute",

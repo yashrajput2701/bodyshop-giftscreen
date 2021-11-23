@@ -90,7 +90,7 @@ const useStyles = makeStyles({
     width: "130px",
   },
   navbarContainer3: {
-    height: "44px",
+    height: "auto",
     width: "100%",
     background: "#D6CE4B",
     boxSizing: "border-box",
@@ -98,7 +98,7 @@ const useStyles = makeStyles({
 
   dotted: {
     width: "100%",
-    height: "30px",
+    height: "auto",
     background: "#D6CE4B",
     border: "1px dashed #000000",
     boxSizing: "border-box",
