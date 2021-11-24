@@ -80,6 +80,12 @@ const useStyles = makeStyles((theme) =>
       marginTop: "5em",
       justifyContent: "space-between",
     },
+    greytext: {
+      // width: "40%",
+      color: "#666666",
+      fontSize: "16px",
+      marginTop: "2rem",
+    },
   })
 );
 export default function AutoGridNoWrap() {
@@ -89,105 +95,101 @@ export default function AutoGridNoWrap() {
   const handleClose = () => setOpen(false);
   return (
     <>
-    <Paper sx={{ p: 2, margin: "auto", maxWidth: 1200, flexGrow: 1, boxShadow: "none" }}>
+      <Paper
+        sx={{
+          p: 2,
+          margin: "auto",
+          maxWidth: 1200,
+          flexGrow: 1,
+          boxShadow: "none",
+        }}
+      >
         <Grid container spacing={2}>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-              <Box className={classes.left}>
-                <Typography variant="h4" className={classes.heading}>
-                  Want to Redeem Gift Card ?
-                </Typography>
-                <Typography
-                  style={{
-                    width: "600px",
-                    color: "#666666",
-                    fontSize: "16px",
-                    marginTop: "2rem",
-                  }}
-                >
-                  Dreaming of a summer escape? Slip into the shower for a taste
-                  of the tropics with this fruity fresh shower gel. It’s
-                  enriched with mango extract from soft and squidgy mangoes and
-                  cleanses your skin with its silky sudsy layers.
-                </Typography>
-                <Button className={classes.ggbtn} onClick={handleOpen}>
-                  Redeem Gift card
-                </Button>
-                <Modal
-                  keepMounted
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="keep-mounted-modal-title"
-                  aria-describedby="keep-mounted-modal-description"
-                >
-                  <Box sx={style} style={{ position: "absolute" }}>
+          {/* <Grid item xs={12} sm container> */}
+          {/* <Grid item xs container direction="column" spacing={2}> */}
+          <Grid item xs={12} md={7}>
+            <Box className={classes.left}>
+              <Typography variant="h4" className={classes.heading}>
+                Want to Redeem Gift Card ?
+              </Typography>
+              <Typography className={classes.greytext}>
+                Dreaming of a summer escape? Slip into the shower for a taste of
+                the tropics with this fruity fresh shower gel. It’s enriched
+                with mango extract from soft and squidgy mangoes and cleanses
+                your skin with its silky sudsy layers.
+              </Typography>
+              <Button className={classes.ggbtn} onClick={handleOpen}>
+                Redeem Gift card
+              </Button>
+              <Modal
+                keepMounted
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="keep-mounted-modal-title"
+                aria-describedby="keep-mounted-modal-description"
+              >
+                <Box sx={style} style={{ position: "absolute" }}>
+                  <Typography
+                    style={{ fontWeight: 700, fontSize: "24px" }}
+                    id="keep-mounted-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    Redeem Balance
+                  </Typography>
+                  <Typography
+                    id="keep-mounted-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    Gift Card Number
+                  </Typography>
+                  <Paper
+                    component="form"
+                    sx={{
+                      p: "2px 4px",
+                      display: "flex",
+                      alignItems: "center",
+                      // width: 400,
+                    }}
+                    style={{
+                      border: "1px #E2E2E2 solid",
+                      height: "54px",
+                      width: "auto",
+                      marginTop: "1rem",
+                    }}
+                  >
+                    <InputBase
+                      sx={{ ml: 1, flex: 1 }}
+                      placeholder="Gift card number here"
+                      inputProps={{ "aria-label": "Gift card number here" }}
+                    />
                     <Typography
-                      style={{ fontWeight: 700, fontSize: "24px" }}
-                      id="keep-mounted-modal-title"
-                      variant="h6"
-                      component="h2"
-                    >
-                      Redeem Balance
-                    </Typography>
-                    <Typography
-                      id="keep-mounted-modal-description"
-                      sx={{ mt: 2 }}
-                    >
-                      Gift Card Number
-                    </Typography>
-                    <Paper
-                      component="form"
-                      sx={{
-                        p: "2px 4px",
-                        display: "flex",
-                        alignItems: "center",
-                        // width: 400,
-                      }}
                       style={{
-                        border: "1px #E2E2E2 solid",
-                        height: "54px",
-                        width: "auto",
-                        marginTop: "1rem",
+                        color: "#044236",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        cursor: "pointer",
                       }}
                     >
-                      <InputBase
-                        sx={{ ml: 1, flex: 1 }}
-                        placeholder="Gift card number here"
-                        inputProps={{ "aria-label": "Gift card number here" }}
-                      />
-                      <Typography
-                        style={{
-                          color: "#044236",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          cursor: "pointer",
-                        }}
-                      >
-                        VALIDATE
-                      </Typography>
-                    </Paper>
-                    <Box className={classes.flexx}>
-                      <Button className={classes.cancelbtn}>
-                        Cancel
-                      </Button>
-                      <Button className={classes.greenbtn}>
-                        Check Balance
-                      </Button>
-                    </Box>
+                      VALIDATE
+                    </Typography>
+                  </Paper>
+                  <Box className={classes.flexx}>
+                    <Button className={classes.cancelbtn}>Cancel</Button>
+                    <Button className={classes.greenbtn}>Check Balance</Button>
                   </Box>
-                </Modal>
-              </Box>
-              </Grid>
-              
-            </Grid>
-            <Grid item>
-            <Box className={classes.giftimg}>
-                  <img src={background} alt="" />
                 </Box>
-           
-            </Grid>
+              </Modal>
+            </Box>
           </Grid>
+
+          {/* </Grid> */}
+          <Grid item xs={12} md={5}>
+            <Box className={classes.giftimg}>
+              <img src={background} alt="" style={{width:"100%",height: "auto"}}/>
+            </Box>
+          </Grid>
+          {/* </Grid> */}
         </Grid>
       </Paper>
     </>

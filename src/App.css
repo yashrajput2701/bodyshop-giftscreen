@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Druk";
+  src: url(./fonts/Druk/Druk-Bold.otf);
+} 
+@font-face {
+  font-family: "Recolita";
+  src: url(./fonts/Recoleta/Recoleta-Black.eot);
+} 
 .App {
   text-align: center;
 }

@@ -45,10 +45,11 @@ const useStyles = makeStyles((theme) =>
     head: {
       color: "#D6CD56",
       fontWeight: 700,
-      fontSize: "24px",
+      fontSize: "28px",
       textAlign: "center",
       textTransform: "uppercase",
       padding: "3rem",
+      fontFamily: "Druk,sans-serif !important",
     },
     backgroundimg: {
       position: "absolute",
@@ -88,7 +89,7 @@ export default function AutoGrid() {
         <Box className={classes.backgroundimg4}>
           <img src={groupb} alt="" />
         </Box>
-        <Typography className={classes.head} variant="h4">
+        <Typography className={classes.head} variant="h3">
         Have you Seen
       </Typography>
       <Grid

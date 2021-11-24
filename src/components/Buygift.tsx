@@ -32,39 +32,38 @@ const useStyles = makeStyles((theme) =>
     },
     heading: {
       fontWeight: 700,
-      fontSize: "24px",
+      fontSize: "30px",
       color: "yellow",
       textTransform: "uppercase",
-      paddingTop: "2rem",
-      // fontFamily: "druk",
+      paddingTop: "1rem",
+      fontFamily: "Druk,sans-serif !important",
     },
     giftimg: {
       padding: "2rem",
-      paddingTop: "6rem",
+      paddingTop: "4rem",
     },
+    greytext: {
+      color: "white",
+      fontSize: "16px",
+      paddingTop: "1rem",
+      paddingBottom: "2rem"
+    }
   })
 );
 export default function AutoGridNoWrap() {
   const classes = useStyles();
   return (
     <>
-    <Paper sx={{ p: 2, margin: "auto", maxWidth: 1200, flexGrow: 1, boxShadow: "none" }}>
-        <Grid container spacing={2} className={classes.mainContainer}>
-          <Grid item xs={12} sm container className={classes.greenbox}>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
+    <Paper sx={{ p: 2, margin: "auto", maxWidth: 1200, flexGrow: 1, boxShadow: "none" }} className={classes.mainContainer}>
+        <Grid container spacing={2} className={classes.greenbox}>
+          {/* <Grid item xs={12} sm container> */}
+            {/* <Grid item xs container direction="column" spacing={2}> */}
+              <Grid item xs={12} md={6}>
               <Box className={classes.left}>
                   <Typography variant="h4" className={classes.heading}>
                     Buy a Gift Card in Store
                   </Typography>
-                  <Typography
-                    style={{
-                      width: "600px",
-                      color: "white",
-                      fontSize: "16px",
-                      marginTop: "2rem",
-                      marginBottom: "3rem",
-                    }}
+                  <Typography className={classes.greytext}
                   >
                     Visit us in store for a free consultation lorem ipsum dolor
                     sit ametabore et magna aliqua quis nostrud exercitation,
@@ -74,8 +73,8 @@ export default function AutoGridNoWrap() {
                 </Box>
               </Grid>
               
-            </Grid>
-            <Grid item>
+            {/* </Grid> */}
+            <Grid item xs={12} md={6}>
             <Box className={classes.giftimg}>
                   <Paper
                     component="form"
@@ -83,7 +82,7 @@ export default function AutoGridNoWrap() {
                       p: "2px 4px",
                       display: "flex",
                       alignItems: "center",
-                      width: 400,
+                      width: "80%",
                     }}
                   >
                     <IconButton
@@ -101,7 +100,7 @@ export default function AutoGridNoWrap() {
                   </Paper>
                 </Box>
             </Grid>
-          </Grid>
+          {/* </Grid> */}
         </Grid>
       </Paper>
     </>

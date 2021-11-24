@@ -59,7 +59,7 @@ const useStyles = makeStyles({
     boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.06)",
     display: "flex",
     justifyContent: "center",
-    overflowX: "auto",
+    // overflowX: "auto",
     boxSizing: "border-box",
   },
   listContainer: {

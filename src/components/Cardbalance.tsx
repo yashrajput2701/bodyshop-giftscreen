@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) =>
       marginTop: "3rem",
     },
     giftimg: {
-      padding: "2rem",
+      padding: "1rem",
     },
     greenbtn: {
       backgroundColor: "#044236",
@@ -85,8 +85,14 @@ const useStyles = makeStyles((theme) =>
     },
     inputfield: {
       outline: "none",
-      width: "350px"
-    }
+      width: "350px",
+    },
+    greytext: {
+      // width: "40%",
+      color: "#666666",
+      fontSize: "16px",
+      marginTop: "2rem",
+    },
   })
 );
 
@@ -95,8 +101,8 @@ export default function Cardbalance() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [isShow,setShow] = React.useState(false);
-  const [enable,setEnable] = React.useState(true);
+  const [isShow, setShow] = React.useState(false);
+  const [enable, setEnable] = React.useState(true);
   const validate = Yup.object({
     Giftcardnumber: Yup.string()
       .max(15, "Must be 15 characters or less")
@@ -107,112 +113,112 @@ export default function Cardbalance() {
   });
   return (
     <>
-    <Paper sx={{ p: 2, margin: "auto", maxWidth: 1200, flexGrow: 1, boxShadow: "none" }}>
+      <Paper
+        sx={{
+          p: 2,
+          margin: "auto",
+          maxWidth: 1200,
+          flexGrow: 1,
+          boxShadow: "none",
+        }}
+      >
         <Grid container spacing={2}>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-              <Box className={classes.giftimg}>
-                  <img src={background} alt="" />
-                </Box>
-              </Grid>
-              
-            </Grid>
-            <Grid item>
+          {/* <Grid item xs={12} sm container> */}
+          {/* <Grid item xs container direction="column" spacing={2}> */}
+          <Grid item xs={12} md={5}>
+            <Box className={classes.giftimg}>
+              <img src={background} alt="" style={{width:"100%",height: "auto"}}/>
+            </Box>
+          </Grid>
+          {/* </Grid> */}
+          <Grid item xs={12} md={7}>
             <Box className={classes.left}>
-                  <Typography variant="h4" className={classes.heading}>
-                    Gift Card Balance Checker
+              <Typography variant="h4" className={classes.heading}>
+                Gift Card Balance Checker
+              </Typography>
+              <Typography className={classes.greytext}>
+                Dreaming of a summer escape? Slip into the shower for a taste of
+                the tropics with this fruity fresh shower gel. It’s enriched
+                with mango extract from soft and squidgy mangoes and cleanses
+                your skin with its silky sudsy layers.
+              </Typography>
+              <Button className={classes.ggbtn} onClick={handleOpen}>
+                Check Balance
+              </Button>
+              <Modal
+                keepMounted
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="keep-mounted-modal-title"
+                aria-describedby="keep-mounted-modal-description"
+              >
+                <Box sx={style} style={{ position: "absolute" }}>
+                  <Typography
+                    style={{ fontWeight: 700, fontSize: "24px" }}
+                    id="keep-mounted-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    Check Balance
                   </Typography>
                   <Typography
-                    style={{
-                      width: "600px",
-                      color: "#666666",
-                      fontSize: "16px",
-                      marginTop: "2rem",
+                    id="keep-mounted-modal-description"
+                    sx={{ mt: 2 }}
+                  >
+                    Gift Card Number
+                  </Typography>
+
+                  <Formik
+                    initialValues={{
+                      Giftcardnumber: "",
+                      // lastName: "",
+                    }}
+                    validationSchema={validate}
+                    onSubmit={(values) => {
+                      console.log(values);
                     }}
                   >
-                    Dreaming of a summer escape? Slip into the shower for a
-                    taste of the tropics with this fruity fresh shower gel. It’s
-                    enriched with mango extract from soft and squidgy mangoes
-                    and cleanses your skin with its silky sudsy layers.
-                  </Typography>
-                  <Button className={classes.ggbtn} onClick={handleOpen}>
-                    Check Balance
-                  </Button>
-                  <Modal
-                    keepMounted
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="keep-mounted-modal-title"
-                    aria-describedby="keep-mounted-modal-description"
-                  >
-                    <Box sx={style} style={{ position: "absolute" }}>
-                      <Typography
-                        style={{ fontWeight: 700, fontSize: "24px" }}
-                        id="keep-mounted-modal-title"
-                        variant="h6"
-                        component="h2"
-                      >
-                        Check Balance
-                      </Typography>
-                      <Typography
-                        id="keep-mounted-modal-description"
-                        sx={{ mt: 2 }}
-                      >
-                        Gift Card Number
-                      </Typography>
+                    {(formik) => (
+                      <div>
+                        <Form>
+                          <TextField
+                            // label="Giftcardnumber"
+                            name="Giftcardnumber"
+                            type="text"
+                            placeholder="Gift card number here"
+                            style={{
+                              fontSize: "14px",
+                              border: "none",
+                            }}
+                            className={classes.inputfield}
+                            setShow={setShow}
+                            isShow={isShow}
+                            setEnable={setEnable}
+                          />
+                          {console.log(isShow)}
 
-                      <Formik
-                        initialValues={{
-                          Giftcardnumber: "",
-                          // lastName: "",
-                        }}
-                        validationSchema={validate}
-                        onSubmit={(values) => {
-                          console.log(values);
-                        }}
-                      >
-                        {(formik) => (
-                          <div>
-                            <Form>
-                              <TextField
-                                // label="Giftcardnumber"
-                                name="Giftcardnumber"
-                                type="text"
-                                placeholder="Gift card number here"
-                                style={{
-                                  fontSize: "14px",
-                                  border: "none",
-                                }}
-                                className={classes.inputfield}
-                                setShow = {setShow}
-                                isShow = {isShow}
-                                setEnable = {setEnable}
-                              />
-                              {console.log(isShow)}
-                              
-                              {isShow? <input />: ""}
-                              <Box className={classes.flexx}>
-                                <Button className={classes.cancelbtn}>
-                                  Cancel
-                                </Button>
-                                <Button
-                                  className={classes.greenbtn}
-                                  type="submit"
-                                  disabled={enable}
-                                >
-                                  Check Balance
-                                </Button>
-                              </Box>
-                            </Form>
-                          </div>
-                        )}
-                      </Formik>
-                    </Box>
-                  </Modal>
+                          {isShow ? <input /> : ""}
+                          <Box className={classes.flexx}>
+                            <Button className={classes.cancelbtn}>
+                              Cancel
+                            </Button>
+                            <Button
+                              className={classes.greenbtn}
+                              type="submit"
+                              disabled={enable}
+                            >
+                              Check Balance
+                            </Button>
+                          </Box>
+                        </Form>
+                      </div>
+                    )}
+                  </Formik>
                 </Box>
-            </Grid>
+              </Modal>
+            </Box>
           </Grid>
+          {/* </Grid> */}
         </Grid>
       </Paper>
     </>

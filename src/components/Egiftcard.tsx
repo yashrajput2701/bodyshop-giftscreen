@@ -5,8 +5,6 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { makeStyles, createStyles, Button } from "@material-ui/core";
 import background from "../Assets/gift.png";
-// import { Signup } from "./Formik";
-// import {useNavigate} from "react-router-dom";
 const useStyles = makeStyles((theme) =>
   createStyles({
     mainContainer: {
@@ -26,6 +24,7 @@ const useStyles = makeStyles((theme) =>
     heading: {
       fontWeight: 700,
       fontSize: "24px",
+      fontFamily: "Recoleta,sans-serif !important"
     },
     ggbtn: {
       backgroundColor: "#044236",
@@ -39,8 +38,13 @@ const useStyles = makeStyles((theme) =>
       marginTop: "3rem",
     },
     giftimg: {
-      padding: "2rem",
+      padding: "1rem",
     },
+    greytext: {
+      color: "#666666",
+      fontSize: "16px",
+      marginTop: "2rem",
+    }
   })
 );
 export default function AutoGridNoWrap() {
@@ -59,23 +63,18 @@ export default function AutoGridNoWrap() {
             maxWidth: 1200,
             flexGrow: 1,
             boxShadow: "none",
+            paddingTop: "2rem"
           }}
         >
           <Grid container spacing={2}>
-            <Grid item xs={12} sm container>
-              <Grid item xs container direction="column" spacing={2}>
-                <Grid item xs>
+            {/* <Grid item xs={12} sm container> */}
+              {/* <Grid item xs container direction="column" spacing={2}> */}
+                <Grid item xs={12} md={7}>
                   <Box className={classes.left}>
                     <Typography variant="h4" className={classes.heading}>
                       Send an e-gift card online
                     </Typography>
-                    <Typography
-                      style={{
-                        width: "600px",
-                        color: "#666666",
-                        fontSize: "16px",
-                        marginTop: "2rem",
-                      }}
+                    <Typography className={classes.greytext}
                     >
                       Dreaming of a summer escape? Slip into the shower for a
                       taste of the tropics with this fruity fresh shower gel.
@@ -88,13 +87,13 @@ export default function AutoGridNoWrap() {
                     </Button>
                   </Box>
                 </Grid>
-              </Grid>
-              <Grid item>
+              {/* </Grid> */}
+              <Grid item xs={12} md={5}>
                 <Box className={classes.giftimg}>
-                  <img src={background} alt="" />
+                  <img src={background} alt="" style={{width:"100%",height: "auto"}}/>
                 </Box>
               </Grid>
-            </Grid>
+            {/* </Grid> */}
           </Grid>
         </Paper>
       </Box>

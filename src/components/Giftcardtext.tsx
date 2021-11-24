@@ -8,6 +8,7 @@ import groupd from "../Assets/Group d.png";
 import groupc from "../Assets/Group c.png";
 import groupa from "../Assets/Group a.png";
 import groupb from "../Assets/Group b.png";
+// import drukebold from "../fonts/Druk/Druk-Bold.otf";
 const useStyles = makeStyles((theme) =>
   createStyles({
     mainContainer: {
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) =>
     yellowtext: {
       color: "#D6CD56",
       textAlign: "center",
-      font: "Druk,sans-serif !important",
+      fontFamily: "Druk,sans-serif !important",
     },
     dummytext: {
       color: "white",
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) =>
     },
     backgroundimg2: {
       position: "absolute",
-      right: "0"
+      right: "0",
     },
     backgroundimg3: {
       position: "absolute",
@@ -68,7 +69,7 @@ export default function AutoGridNoWrap() {
   const classes = useStyles();
   return (
     <>
-    {/* <Box sx={{ flexGrow: 1, overflow: "hidden" }}> */}
+      {/* <Box sx={{ flexGrow: 1, overflow: "hidden" }}> */}
       <Paper sx={{ maxWidth: "auto", my: 1, mx: "auto", boxShadow: "none" }}>
         <Grid
           container
@@ -95,7 +96,7 @@ export default function AutoGridNoWrap() {
               </Typography>
               <Typography
                 className={classes.yellowtext}
-                style={{ fontSize: "40px", fontWeight: 700 }}
+                style={{ fontSize: "48px", fontWeight: 700 }}
               >
                 Lorem ipsum dolor
               </Typography>
@@ -115,7 +116,7 @@ export default function AutoGridNoWrap() {
           </Grid>
         </Grid>
       </Paper>
-    {/* </Box> */}
+      {/* </Box> */}
     </>
   );
 }

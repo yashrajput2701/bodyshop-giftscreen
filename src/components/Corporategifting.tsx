@@ -6,9 +6,10 @@ import Typography from "@mui/material/Typography";
 import { makeStyles, createStyles, Button } from "@material-ui/core";
 import background from "../Assets/Group2.png";
 import { useDispatch } from "react-redux";
-import { openFormAction } from "../screens/Giftscreen/actions"
+import { openFormAction } from "../screens/Giftscreen/actions";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router";
 const useStyles = makeStyles((theme) =>
   createStyles({
     mainContainer: {
@@ -42,16 +43,24 @@ const useStyles = makeStyles((theme) =>
     },
     giftimg: {
       padding: "2rem",
-      width: "30%"
+    },
+    greytext: {
+      // width: "40%",
+      color: "#666666",
+      fontSize: "16px",
+      marginTop: "2rem",
     },
   })
 );
 export default function AutoGridNoWrap() {
   const classes = useStyles();
-  const dispatch = useDispatch()
-  const openForm = ()=> {
-    dispatch(openFormAction(true)); 
-  }
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const openForm = () => {
+    dispatch(openFormAction(true));
+    navigate("/Corporateform")
+
+  };
   return (
     <>
       <Paper
@@ -64,40 +73,33 @@ export default function AutoGridNoWrap() {
           display: "flex",
         }}
       >
-        <Grid container spacing={2} >
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Box className={classes.giftimg}>
-                  <img src={background} alt="" />
-                </Box>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Box className={classes.left}>
-                <Typography variant="h4" className={classes.heading}>
-                  Corporate Gifting
-                </Typography>
-                <Typography
-                  style={{
-                    width: "600px",
-                    color: "#666666",
-                    fontSize: "16px",
-                    marginTop: "2rem",
-                  }}
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod temporut labore et magna aliquaad, quis nostrud
-                  exercitation ullamco laboris Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit, sed do eiusmod temporut labore et
-                  magna aliquaad, quis
-                </Typography>
-                <Button className={classes.ggbtn}  onClick={openForm}>
-                  Corporate gifting
-                </Button>
-              </Box>
-            </Grid>
+        <Grid container spacing={2}>
+          {/* <Grid item xs={12} sm container> */}
+          {/* <Grid item xs container direction="column" spacing={2}> */}
+          <Grid item xs={12} md={5}>
+            <Box className={classes.giftimg}>
+              <img src={background} alt="" style={{width:"100%",height: "auto"}}/>
+            </Box>
           </Grid>
+          {/* </Grid> */}
+          <Grid item xs={12} md={7}>
+            <Box className={classes.left}>
+              <Typography variant="h4" className={classes.heading}>
+                Corporate Gifting
+              </Typography>
+              <Typography className={classes.greytext}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod temporut labore et magna aliquaad, quis nostrud
+                exercitation ullamco laboris Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed do eiusmod temporut labore et
+                magna aliquaad, quis
+              </Typography>
+              <Button className={classes.ggbtn} onClick={openForm}>
+                Corporate gifting
+              </Button>
+            </Box>
+          </Grid>
+          {/* </Grid> */}
         </Grid>
       </Paper>
     </>
