@@ -20,18 +20,18 @@ const MyTextInput = ({ label, ...props }: any) => {
     </>
   );
 };
-const MyInput = ({ label, ...props}:any) => {
+const MyInput = ({ label, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
     <>
-    <label htmlFor={props.id || props.name}>{label}</label>
-    <input className="text-input" {...field} {...props} />
-    {meta.touched && meta.error ? (
-      <div className="error">{meta.error}</div>
-    ) : null}
-  </>
-  )
-}
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <input className="text-input" {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </>
+  );
+};
 // const MyCheckbox = ({ children, ...props }: any) => {
 //   const [field, meta] = useField({ ...props, type: "checkbox" });
 //   return (
@@ -157,7 +157,7 @@ export default function Corporateform() {
         name: "",
         mobilenumber: "",
         email: "",
-        genderOptions: "",
+        contact: "",
       }}
       validationSchema={Yup.object().shape({
         name: Yup.string()
@@ -167,7 +167,7 @@ export default function Corporateform() {
           .max(10, "Must be 10 characters or less")
           .required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
-        genderOptions: Yup.boolean()
+        contact: Yup.boolean()
           .required("Required")
           .oneOf([true], "You must accept the terms and conditions."),
       })}
@@ -180,119 +180,123 @@ export default function Corporateform() {
       //   }, 400);
       // }}
       onSubmit={(values, { setSubmitting }) => {
+        // debugger; 
         setSubmitting(true);
         console.log(values);
-      //   handleSubmit(values);
+        //   handleSubmit(values);
       }}
     >
       {/* {({ errors, touched, isValidating }) => ( */}
-        {({ values, errors, touched, isSubmitting, setFieldTouched }) => (
-      <div className={classes.formcontainer}>
-        <Typography className={classes.corp}>Corporate Form</Typography>
-        <div className="col-sm-12">
-          <Form>
-            <div className={classes.firstcontainer}>
-              <div>
-                <Typography className={classes.label}>Name</Typography>
-                <MyTextInput
-                  className={classes.nameinput}
-                  type="text"
-                  placeholder="Name"
-                  name="name"
-                  // validate={validateName}
-                />
-                {/* {errors.name && touched.name && errorMessage(errors.name)} */}
-              </div>
+      {({ values, errors, touched, isSubmitting, setFieldTouched }) => (
+        <div className={classes.formcontainer}>
+          <Typography className={classes.corp}>Corporate Form</Typography>
+          <div className="col-sm-12">
+            <Form>
+              <div className={classes.firstcontainer}>
+                <div>
+                  <Typography className={classes.label}>Name</Typography>
+                  <MyTextInput
+                    className={classes.nameinput}
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    // validate={validateName}
+                  />
+                  {/* {errors.name && touched.name && errorMessage(errors.name)} */}
+                </div>
 
-              <div className="form-group">
-                <Typography className={classes.label}>Mobile</Typography>
-                <MyInput
-                  className={classes.nameinput}
-                  type="tel"
-                  placeholder="Mobile number"
-                  name="mobilenumber"
-                  // validate={validateMobileNumber}
-                />
-                {/* {errors.mobilenumber &&
+                <div className="form-group">
+                  <Typography className={classes.label}>Mobile</Typography>
+                  <MyInput
+                    className={classes.nameinput}
+                    type="tel"
+                    placeholder="Mobile number"
+                    name="mobilenumber"
+                    // validate={validateMobileNumber}
+                  />
+                  {/* {errors.mobilenumber &&
                     touched.mobilenumber &&
                     errorMessage(errors.mobilenumber)} */}
-              </div>
-            </div>
-            <div className={classes.secondcontainer}>
-              <div className="form-group">
-                <Typography className={classes.label}>Email</Typography>
-                <MyTextInput
-                  type="email"
-                  name="email"
-                  className={classes.nameinput}
-                  placeholder="Email"
-                  // validate={validateEmail}
-                />
-                {/* {errors.email && touched.email && errorMessage(errors.email)} */}
-              </div>
-              <div className={classes.togglebuttons}>
-                <label className={classes.toggle}>
-                  Preferred mode of contact
-                </label>
-                <br />
-                <div className={classes.tglalign}>
-                  <div
-                    className={`form-check form-check-inline ${classes.aligntoggle}`}
-                  >
-                    <Field
-                      className={classes.togglebtn}
-                      type="radio"
-                      name="genderOptions"
-                      value="Call"
-                      id="inlineRadio1"
-                    />
-                    <label
-                      className={classes.togglesize}
-                      htmlFor="inlineRadio1"
-                    >
-                      Call
-                    </label>
-                  </div>
-                  <div
-                    className={`form-check form-check-inline ${classes.aligntoggle}`}
-                  >
-                    <Field
-                      className={classes.togglebtn}
-                      type="radio"
-                      name="genderOptions"
-                      value="Email"
-                      id="inlineRadio2"
-                    />
-                    <label
-                      className={classes.togglesize}
-                      htmlFor="inlineRadio2"
-                    >
-                      Email
-                    </label>
-                  </div>
                 </div>
               </div>
-            </div>
+              <div className={classes.secondcontainer}>
+                <div className="form-group">
+                  <Typography className={classes.label}>Email</Typography>
+                  <MyTextInput
+                    type="email"
+                    name="email"
+                    className={classes.nameinput}
+                    placeholder="Email"
+                    // validate={validateEmail}
+                  />
+                  {/* {errors.email && touched.email && errorMessage(errors.email)} */}
+                </div>
+                <div className={classes.togglebuttons}>
+                  <label className={classes.toggle}>
+                    Preferred mode of contact
+                  </label>
+                  <br />
+                  <div className={classes.tglalign}>
+                    <div
+                      className={`form-check form-check-inline ${classes.aligntoggle}`}
+                    >
+                      <Field
+                        className={classes.togglebtn}
+                        type="radio"
+                        name="contact"
+                        value={true}
+                        id="inlineRadio1"
+                      />
+                      <label
+                        className={classes.togglesize}
+                        htmlFor="inlineRadio1"
+                      >
+                        Call
+                      </label>
+                    </div>
+                    <div
+                      className={`form-check form-check-inline ${classes.aligntoggle}`}
+                    >
+                      <Field
+                        className={classes.togglebtn}
+                        type="radio"
+                        name="contact"
+                        value={false}
+                        id="inlineRadio2"
+                      />
+                      <label
+                        className={classes.togglesize}
+                        htmlFor="inlineRadio2"
+                      >
+                        Email
+                      </label>
+                    </div>
+                  </div>
+                  {touched.contact && errors.contact && (
+                    <div className="error">{errors.contact}</div>
+                  )}
+                </div>
+              </div>
 
-            <div>
-              <Typography className={classes.label}>Comments</Typography>
-              <Field
-                component="textarea"
-                className={classes.biginput}
-                name="About"
-              />
-            </div>
-            <div className={classes.groupbutton}>
-              <Button className={classes.cancelbtn}>Cancel</Button>
-              <Button className={classes.greenbtn} type="submit">
-                Submit
-              </Button>
-            </div>
-          </Form>
+              <div>
+                <Typography className={classes.label}>Comments</Typography>
+                <Field
+                  component="textarea"
+                  className={classes.biginput}
+                  name="About"
+                />
+              </div>
+              <div className={classes.groupbutton}>
+                <Button className={classes.cancelbtn}>Cancel</Button>
+                <Button className={classes.greenbtn} type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Form>
+          </div>
         </div>
-      </div>
-      /* )} */
-        )}
+        /* )} */
+      )}
     </Formik>
   );
 }

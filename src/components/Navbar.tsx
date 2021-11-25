@@ -30,11 +30,7 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
-    // position: "absolute",
-    width: "100%",
     height: "78px",
-    // left: "0",
-    // top: "0",
     background: "#004236",
     boxSizing: "border-box",
   },
@@ -45,7 +41,7 @@ const useStyles = makeStyles({
     fontWeight: 500,
   },
 
-  logo1: {
+  logo1: { 
     display: "flex",
   },
 
@@ -54,21 +50,26 @@ const useStyles = makeStyles({
   },
   navbarContainer2: {
     width: "100%",
-    height: "60px",
+    // height: "60px",
     background: "#FFFFFF",
     boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.06)",
-    display: "flex",
-    justifyContent: "center",
-    // overflowX: "auto",
-    boxSizing: "border-box",
+    // display: "flex",
+
+    // justifyContent: "center",
+    // boxSizing: "border-box",
   },
+
   listContainer: {
+    width: "100%",
+    // overflowX: "auto",
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
   },
 
   listItem: {
     margin: "4px",
+    fontSize: "15px",
   },
 
   link: {
