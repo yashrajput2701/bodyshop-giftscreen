@@ -180,14 +180,22 @@ export default function Corporateform() {
       //   }, 400);
       // }}
       onSubmit={(values, { setSubmitting }) => {
-        // debugger; 
+        // debugger;
         setSubmitting(true);
         console.log(values);
         //   handleSubmit(values);
       }}
     >
       {/* {({ errors, touched, isValidating }) => ( */}
-      {({ values, errors, touched, isSubmitting, setFieldTouched }) => (
+      {({
+        values,
+        errors,
+        touched,
+        isSubmitting,
+        setFieldTouched,
+        handleChange,
+        handleBlur,
+      }) => (
         <div className={classes.formcontainer}>
           <Typography className={classes.corp}>Corporate Form</Typography>
           <div className="col-sm-12">
@@ -200,6 +208,8 @@ export default function Corporateform() {
                     type="text"
                     placeholder="Name"
                     name="name"
+                    onChange={handleChange}
+                    value={values.name}
                     // validate={validateName}
                   />
                   {/* {errors.name && touched.name && errorMessage(errors.name)} */}
@@ -212,6 +222,8 @@ export default function Corporateform() {
                     type="tel"
                     placeholder="Mobile number"
                     name="mobilenumber"
+                    onChange={handleChange}
+                    value={values.mobilenumber}
                     // validate={validateMobileNumber}
                   />
                   {/* {errors.mobilenumber &&
@@ -227,6 +239,8 @@ export default function Corporateform() {
                     name="email"
                     className={classes.nameinput}
                     placeholder="Email"
+                    onChange={handleChange}
+                    value={values.email}
                     // validate={validateEmail}
                   />
                   {/* {errors.email && touched.email && errorMessage(errors.email)} */}
@@ -244,8 +258,11 @@ export default function Corporateform() {
                         className={classes.togglebtn}
                         type="radio"
                         name="contact"
-                        value={true}
+                        // value={true}
                         id="inlineRadio1"
+                        onChange={handleChange}
+                        value={values.contact}
+                        // onBlur={handleBlur}
                       />
                       <label
                         className={classes.togglesize}
@@ -261,8 +278,11 @@ export default function Corporateform() {
                         className={classes.togglebtn}
                         type="radio"
                         name="contact"
-                        value={false}
+                        // value={false}
                         id="inlineRadio2"
+                        onChange={handleChange}
+                        value={values.contact}
+                        // onBlur={handleBlur}
                       />
                       <label
                         className={classes.togglesize}
