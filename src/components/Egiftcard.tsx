@@ -24,7 +24,9 @@ const useStyles = makeStyles((theme) =>
     heading: {
       fontWeight: 700,
       fontSize: "24px",
-      fontFamily: "Recoleta,sans-serif !important"
+      fontFamily: "Druk,sans-serif !important",
+      letterSpacing: "3px !important",
+      marginBottom: "1rem",
     },
     ggbtn: {
       backgroundColor: "#044236",

@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) =>
       textTransform: "uppercase",
       padding: "3rem",
       fontFamily: "Druk,sans-serif !important",
+      letterSpacing: "3px !important",
     },
     backgroundimg: {
       position: "absolute",

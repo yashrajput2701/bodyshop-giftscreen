@@ -36,6 +36,8 @@ const useStyles = makeStyles((theme) =>
       color: "#D6CD56",
       textAlign: "center",
       fontFamily: "Druk,sans-serif !important",
+      letterSpacing: "3px !important",
+
     },
     dummytext: {
       color: "white",
@@ -43,7 +45,7 @@ const useStyles = makeStyles((theme) =>
       textAlign: "center",
       display: "flex",
       justifyContent: "center",
-      padding: "5rem",
+      padding: "2rem",
     },
     backgroundimg: {
       position: "absolute",

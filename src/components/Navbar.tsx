@@ -41,7 +41,7 @@ const useStyles = makeStyles({
     fontWeight: 500,
   },
 
-  logo1: { 
+  logo1: {
     display: "flex",
   },
 
@@ -60,16 +60,23 @@ const useStyles = makeStyles({
   },
 
   listContainer: {
-    width: "100%",
-    // overflowX: "auto",
+    width: "75%",
+    margin: "0 auto",
+    overflowX: "auto",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     alignItems: "center",
   },
 
   listItem: {
-    margin: "4px",
-    fontSize: "15px",
+    // margin: "4px",
+    margin: "0",
+    padding: "0",
+    // fontSize: "15px",
+
+    "&.MuiListItem-root": {
+      width: "auto",
+    },
   },
 
   link: {
@@ -78,18 +85,6 @@ const useStyles = makeStyles({
     fontWeight: 500,
   },
 
-  link2: {
-    color: "#333333",
-    fontSize: "15px",
-    fontWeight: 500,
-    width: "90px",
-  },
-  link3: {
-    color: "#333333",
-    fontSize: "15px",
-    fontWeight: 500,
-    width: "130px",
-  },
   navbarContainer3: {
     height: "auto",
     width: "100%",
@@ -112,12 +107,26 @@ const useStyles = makeStyles({
     color: "#004240",
     display: "flex",
     justifyContent: "center",
+    margin: "0.5rem"
   },
 });
 
 export default function Navbar() {
   const classes = useStyles();
-
+  const NavbarMenu = [
+    "TRENDING",
+    "FACE",
+    "BODY",
+    "MAKEUP",
+    "HAIR",
+    "FRAGRANCE",
+    "GIFT",
+    "RANGE",
+    "OFFERS",
+    "BODY CLUBS",
+    "TIPS AND ADVICES",
+    "ABOUT US",
+  ];
   return (
     <AppBar className={classes.container}>
       <Toolbar className={classes.navbarContainer}>
@@ -139,7 +148,16 @@ export default function Navbar() {
       </Toolbar>
       <Toolbar className={classes.navbarContainer2}>
         <List className={classes.listContainer} disablePadding>
-          <ListItem className={classes.listItem}>
+          {NavbarMenu.map((item, index) => {
+            return (
+              <ListItem className={classes.listItem} key={index}>
+                <Link href="#" className={classes.link} underline="none">
+                  {item}
+                </Link>
+              </ListItem>
+            );
+          })}
+          {/* <ListItem className={classes.listItem}>
             <Link href="#" className={classes.link} underline="none">
               {"TRENDING"}
             </Link>
@@ -198,7 +216,7 @@ export default function Navbar() {
             <Link href="#" className={classes.link2} underline="none">
               {"ABOUT US"}
             </Link>
-          </ListItem>
+          </ListItem> */}
         </List>
       </Toolbar>
       <Toolbar className={classes.navbarContainer3}>

@@ -13,10 +13,10 @@ import { useNavigate } from "react-router";
 const useStyles = makeStyles((theme) =>
   createStyles({
     mainContainer: {
-      width: "100%",
-      margin: "0 auto",
-      display: "flex",
-      justifyContent: "center",
+      // width: "100%",
+      // margin: "0 auto",
+      // display: "flex",
+      // justifyContent: "center",
     },
     hometext: {
       display: "flex",
@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) =>
     heading: {
       fontWeight: 700,
       fontSize: "24px",
+      fontFamily: "Druk,sans-serif !important",
+      letterSpacing: "3px !important",
+      marginBottom: "1rem",
     },
     ggbtn: {
       backgroundColor: "#044236",
@@ -43,6 +46,9 @@ const useStyles = makeStyles((theme) =>
     },
     giftimg: {
       padding: "2rem",
+      [theme.breakpoints.down("md")]: {
+        display: "none",
+      },
     },
     greytext: {
       // width: "40%",
@@ -50,6 +56,14 @@ const useStyles = makeStyles((theme) =>
       fontSize: "16px",
       marginTop: "2rem",
     },
+    giftimgmob: {
+      display: "none",
+      width:"100%",
+      height: "auto",
+      [theme.breakpoints.down("md")]: {
+        display: "block"
+      },
+    }
   })
 );
 export default function AutoGridNoWrap() {
@@ -73,7 +87,7 @@ export default function AutoGridNoWrap() {
           display: "flex",
         }}
       >
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className={classes.mainContainer}>
           {/* <Grid item xs={12} sm container> */}
           {/* <Grid item xs container direction="column" spacing={2}> */}
           <Grid item xs={12} md={5}>
@@ -100,6 +114,9 @@ export default function AutoGridNoWrap() {
             </Box>
           </Grid>
           {/* </Grid> */}
+          <Box className={classes.giftimgmob}>
+              <img src={background} alt="" style={{width:"100%",height: "auto"}}/>
+            </Box>
         </Grid>
       </Paper>
     </>

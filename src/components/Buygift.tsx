@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) =>
       textTransform: "uppercase",
       paddingTop: "1rem",
       fontFamily: "Druk,sans-serif !important",
+      letterSpacing: "3px !important",
     },
     giftimg: {
       padding: "2rem",
@@ -82,7 +83,7 @@ export default function AutoGridNoWrap() {
                       p: "2px 4px",
                       display: "flex",
                       alignItems: "center",
-                      width: "80%",
+                      width: "90%",
                     }}
                   >
                     <IconButton

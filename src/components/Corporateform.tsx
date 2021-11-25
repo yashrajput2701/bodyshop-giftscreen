@@ -167,9 +167,10 @@ export default function Corporateform() {
           .max(10, "Must be 10 characters or less")
           .required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
-        contact: Yup.boolean()
-          .required("Required")
-          .oneOf([true], "You must accept the terms and conditions."),
+        // contact: Yup.boolean()
+        //   .required("Required")
+        //   .oneOf([true], "You must accept the terms and conditions."),
+        contact: Yup.string().required("A radio option is required"),
       })}
       // onSubmit={(values, { setSubmitting }) => {
       //   // console.log(JSON.stringify(values, null, 2));
@@ -261,7 +262,7 @@ export default function Corporateform() {
                         // value={true}
                         id="inlineRadio1"
                         onChange={handleChange}
-                        value={values.contact}
+                        value="call"
                         // onBlur={handleBlur}
                       />
                       <label
@@ -281,7 +282,7 @@ export default function Corporateform() {
                         // value={false}
                         id="inlineRadio2"
                         onChange={handleChange}
-                        value={values.contact}
+                        value="email"
                         // onBlur={handleBlur}
                       />
                       <label
