@@ -5,6 +5,10 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { makeStyles, createStyles, Button } from "@material-ui/core";
 import background from "../Assets/gift.png";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { SENDGIFTCARDDATA } from "../Actions";
+import { ReducersModel } from "../model";
 const useStyles = makeStyles((theme) =>
   createStyles({
     mainContainer: {
@@ -46,7 +50,7 @@ const useStyles = makeStyles((theme) =>
       color: "#666666",
       fontSize: "16px",
       marginTop: "2rem",
-    }
+    },
   })
 );
 export default function AutoGridNoWrap() {
@@ -55,6 +59,12 @@ export default function AutoGridNoWrap() {
   // const handleClick = () => {
   //   setisshow(true);
   // };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(SENDGIFTCARDDATA());
+  }, []);
+  const apidata = useSelector((state: ReducersModel) => state.sendgiftReducer);
+  console.log("apidata", apidata);
   return (
     <>
       <Box sx={{ flexGrow: 1, overflow: "hidden" }}>
@@ -65,19 +75,18 @@ export default function AutoGridNoWrap() {
             maxWidth: 1200,
             flexGrow: 1,
             boxShadow: "none",
-            paddingTop: "2rem"
+            paddingTop: "2rem",
           }}
         >
-          <Grid container spacing={2}>
-            {/* <Grid item xs={12} sm container> */}
-              {/* <Grid item xs container direction="column" spacing={2}> */}
+          {apidata.data.map((product: any, index: any) => {
+            return (
+              <Grid container spacing={2}>
                 <Grid item xs={12} md={7}>
                   <Box className={classes.left}>
                     <Typography variant="h4" className={classes.heading}>
                       Send an e-gift card online
                     </Typography>
-                    <Typography className={classes.greytext}
-                    >
+                    <Typography className={classes.greytext}>
                       Dreaming of a summer escape? Slip into the shower for a
                       taste of the tropics with this fruity fresh shower gel.
                       It’s enriched with mango extract from soft and squidgy
@@ -89,14 +98,19 @@ export default function AutoGridNoWrap() {
                     </Button>
                   </Box>
                 </Grid>
-              {/* </Grid> */}
-              <Grid item xs={12} md={5}>
-                <Box className={classes.giftimg}>
-                  <img src={background} alt="" style={{width:"100%",height: "auto"}}/>
-                </Box>
+
+                <Grid item xs={12} md={5}>
+                  <Box className={classes.giftimg}>
+                    <img
+                      src={background}
+                      alt=""
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </Box>
+                </Grid>
               </Grid>
-            {/* </Grid> */}
-          </Grid>
+            );
+          })}
         </Paper>
       </Box>
     </>

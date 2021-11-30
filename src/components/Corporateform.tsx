@@ -170,7 +170,7 @@ export default function Corporateform() {
         // contact: Yup.boolean()
         //   .required("Required")
         //   .oneOf([true], "You must accept the terms and conditions."),
-        contact: Yup.string().required("A radio option is required"),
+        contact: Yup.string().required("Preffered mode of contact is required"),
       })}
       // onSubmit={(values, { setSubmitting }) => {
       //   // console.log(JSON.stringify(values, null, 2));

@@ -1,7 +1,13 @@
 class OpenFormModel {
   formOpen: Boolean = false;
 }
-class ReducerModel {
-  formOpenReducer: OpenFormModel = new OpenFormModel();
+// class ReducerModel {
+//   formOpenReducer: OpenFormModel = new OpenFormModel();
+// }
+class sendModel{
+  apidata:any={}
 }
-export { OpenFormModel, ReducerModel };
+class ReducersModel{
+  sendgiftReducer:sendModel=new sendModel()
+}
+export { OpenFormModel, ReducersModel, sendModel };

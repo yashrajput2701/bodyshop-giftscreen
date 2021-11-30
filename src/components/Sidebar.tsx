@@ -16,7 +16,7 @@
 // import vector3 from "../Assets/Vector (3).png";
 // import vector4 from "../Assets/Vector (4).png";
 // import { Link } from "react-router-dom";
-// class NavBar extends React.Component {
+// class NavBarmob extends React.Component {
 //   constructor(props:any) {
 //     super(props);
 
@@ -123,7 +123,7 @@
 //     );
 //   }
 // }
-// export default NavBar;
+// export default NavBarmob;
 import React from "react";
 const Sidebar = () => {};
 export default Sidebar;

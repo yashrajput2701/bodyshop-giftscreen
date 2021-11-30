@@ -5,8 +5,8 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { makeStyles, createStyles, Button } from "@material-ui/core";
 import background from "../Assets/Group2.png";
-import { useDispatch } from "react-redux";
-import { openFormAction } from "../screens/Giftscreen/actions";
+// import { useDispatch } from "react-redux";
+// import { openFormAction } from "../screens/Giftscreen/actions";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router";
@@ -68,10 +68,10 @@ const useStyles = makeStyles((theme) =>
 );
 export default function AutoGridNoWrap() {
   const classes = useStyles();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const openForm = () => {
-    dispatch(openFormAction(true));
+    // dispatch(openFormAction(true));
     navigate("/Corporateform")
 
   };

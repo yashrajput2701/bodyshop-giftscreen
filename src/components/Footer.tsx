@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) =>
       marginBottom: "15px",
     },
     footertext: {
-      textAlign: "center"
+      // textAlign: "center"
     }
   })
 );
